@@ -1,0 +1,52 @@
+<view class="container">
+    <view class="auth-icon">
+        <image class="auth-img" src="../../images/banner.jpg"></image>
+    </view>
+    <view class="auth-from">
+        <form bindsubmit='auth'>
+
+            <view class="inputView" wx:if="{{isDisplay}}">
+                <label class="authLab">实名状态</label>
+                    <input class="inputText" style="color:{{isCretification=='1'?'green':'red'}}" value="{{isCretification=='1'?'已认证':'未认证'}}" type='text' disabled="true" />
+            </view>
+
+            <!--身份证号-->
+            <view class="inputView">
+                <!--<image class="keyImage" src="../../images/idcard.png"></image>-->
+                <label class="authLab">身份证</label>
+                <input class="inputText" value="{{idCardNumber}}" type='idcard' name='idCardNumber' disabled="{{ownerBind}}" placeholder="请输入身份证号"/>
+            </view>
+
+            <!--姓名-->
+            <view class="inputView">
+                <!--<image class="nameImage" src="../../images/name.png"></image>-->
+                <label class="authLab">姓名</label>
+                <input class="inputText" value="{{name}}" type='text' name='name' disabled="{{ownerBind}}" placeholder="请输入姓名"/>
+            </view>
+            <view class="inputView" wx:if="{{isDisplay}}">
+                <!--<image class="nameImage" src="../../images/name.png"></image>-->
+                <label class="authLab">人脸核验方式</label>
+                <view class="selectText">
+                    <picker range='{{checkAliveTypeArray}}' range-key="checkAliveTypeText" value="{{checkAliveType}}" bindchange="bindCheckAliveTypeChange">
+                        <view class="weui-input" style='overflow: hidden;white-space: nowrap;text-overflow:ellipsis;'>{{checkAliveTypeArray[checkAliveType].checkAliveTypeText}}</view>
+                    </picker>
+                </view>
+            </view>
+
+            <view wx:if="{{isVeri}}" style="text-align: center;color: red">实名成功，您可以到公众号绑定房屋</view>
+            <!--按钮-->
+            <view class="authBtnView">
+                <button wx:if="{{!isVeri}}" class="authBtn" type="primary" formType="submit">实名认证
+                </button>
+                <view wx:else>
+                    <view wx:if="{{displayFlag}}">
+                        <navigator hover-class="none" open-type="exit" target="miniProgram">
+                            <button class="authBtn" type="primary">点击返回</button>
+                        </navigator>
+                    </view>
+                    <button wx:else class="authBtn" type="primary" bindtap="backApp">点击返回</button>
+                </view>
+            </view>
+        </form>
+    </view>
+</view>

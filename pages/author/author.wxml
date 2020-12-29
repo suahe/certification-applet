@@ -1,0 +1,12 @@
+<view>
+	<view class="author_main">
+		<view class="author_loading">
+			<view>
+				<image class="img_loading" src="../../images/loading.gif"></image>
+			</view>
+			<view>
+				正在跳转，请稍后...
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/author/author",
+    "pages/index/index",
+    "pages/userAuthor/userAuthor"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#21293E",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}
